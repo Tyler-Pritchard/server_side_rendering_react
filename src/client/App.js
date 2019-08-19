@@ -4,7 +4,7 @@ import { renderRoutes } from "react-router-config";
 const App = ({ route }) => {
   return (
     <div>
-      <h1>I'm a header</h1>
+      <Header />
       {renderRoutes(route.routes)}
     </div>
   );
