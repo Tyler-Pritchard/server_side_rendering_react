@@ -16,9 +16,13 @@ const Header = ({ auth }) => {
           React SSR
         </Link>
         <ul>
-          <Link to="/users">Users</Link>
-          <Link to="/admins">Admins</Link>
-          {authButton}
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/admins">Admins</Link>
+          </li>
+          <li>{authButton}</li>
         </ul>
       </div>
     </nav>
