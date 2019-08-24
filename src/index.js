@@ -3,7 +3,7 @@ import express from "express";
 import {
   matchRoutes
 } from "react-router-config";
-import proxy from 'express-http-proxy';
+import proxy from "express-http-proxy";
 import Routes from "./client/Routes";
 import renderer from "./helpers/renderer";
 import createStore from "./helpers/createStore";
@@ -27,7 +27,14 @@ app.get("*", (req, res) => {
   });
 
   Promise.all(promises).then(() => {
-    res.send(renderer(req, store));
+    const context = {};
+    const content = renderer(req, store, context);
+
+    if (context.notFound) {
+      res.status(404);
+    }
+
+    res.send(content);
   });
 });
 
