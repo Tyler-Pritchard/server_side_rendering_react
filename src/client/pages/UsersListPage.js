@@ -14,13 +14,17 @@ class UsersList extends Component {
     });
   }
 
+  head() {
+    <Helmet>
+      <title>Users App</title>
+      <meta property="og:title" content="Users App" />
+    </Helmet>;
+  }
+
   render() {
     return (
       <div>
-        <Helmet>
-          <title>Users App</title>
-          <meta property="og:title" content="Users App" />
-        </Helmet>
+        {this.head()}
         List of Users
         <ul>{this.renderUsers()}</ul>
       </div>
